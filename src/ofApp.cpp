@@ -3,6 +3,8 @@
 //--------------------------------------------------------------
 void ofApp::setup()
 {
+    ofBackground(ofColor::black);
+    
     // double radiusEq, double radiusPolar, double rotationPeriod, double axialTilt
     double sunRadius = 696342.0;
     double rotationPeriod = 601.2; // Sun rotation period in days is 25.05

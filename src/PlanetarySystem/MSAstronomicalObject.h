@@ -12,6 +12,8 @@
 #include <stdio.h>
 #include "ofMain.h"
 
+const double SCALE_FACTOR = 1000000.0;
+
 class MSAstronomicalObject
 {
 public:
@@ -20,20 +22,25 @@ public:
 
     MSAstronomicalObject(double radiusEq, double radiusPolar, double rotationPeriod, double axialTilt);
 
+    void setParent(MSAstronomicalObject *parent);
+
     void update();
     void draw();
 
+    double getRadius();
+
+    ofSpherePrimitive       m3DObject;
+
 protected:
 
-    double              mRadiusEquatorial;      // In km
-    double              mRadiusPolar;           // In km
+    double                  mRadiusEquatorial;      // In km
+    double                  mRadiusPolar;           // In km
 
-    double              mRotationPeriod;        // In hours
+    double                  mRotationPeriod;        // In hours
 
-    double              mAxialTilt;             // Angle (0 for star)
+    double                  mAxialTilt;             // Angle (0 for star)
 
-    ofSpherePrimitive   m3DObject;
-
+    MSAstronomicalObject    *parent;
 };
 
 #endif /* defined(__Planets__MSAstronomicalObject__) */

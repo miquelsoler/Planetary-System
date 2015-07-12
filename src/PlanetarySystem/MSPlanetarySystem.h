@@ -13,6 +13,8 @@
 
 #include "MSAstronomicalObject.h"
 
+#include "ofxAppUtils.h"
+
 class MSPlanetarySystem
 {
 public:
@@ -29,6 +31,8 @@ private:
 
     MSAstronomicalObject            star;
     vector<MSAstronomicalObject>    astronomicalObjects;
+
+    ofEasyCam                       camera;
 };
 
 #endif /* defined(__Planets__MSPlanetarySystem__) */
