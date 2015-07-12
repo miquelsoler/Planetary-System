@@ -27,7 +27,7 @@ MSAstronomicalObject::MSAstronomicalObject(double radiusEq, double radiusPolar, 
     m3DObject.mapTexCoordsFromTexture(m3DObjectTexture.getTextureReference());
     m3DObject.mapTexCoords(0, 1, 1, 0);
 
-    m3DObject.setResolution(24);
+    m3DObject.setResolution(64);
 }
 
 void MSAstronomicalObject::setParent(MSAstronomicalObject *_parent)
