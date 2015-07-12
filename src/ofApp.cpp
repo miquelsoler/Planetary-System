@@ -4,6 +4,7 @@
 void ofApp::setup()
 {
     ofBackground(ofColor::black);
+    isFullScreen = false;
 
     // Add the sun
     double sunRadius = 696342.0;
@@ -26,7 +27,14 @@ void ofApp::draw(){
 
 //--------------------------------------------------------------
 void ofApp::keyPressed(int key){
-
+    switch(key)
+    {
+        case 'f':
+        case 'F':
+            isFullScreen = !isFullScreen;
+            ofSetFullscreen(isFullScreen);
+            break;
+    }
 }
 
 //--------------------------------------------------------------

@@ -29,5 +29,7 @@ private:
 
     MSPlanetarySystem planetarySystem;
 
+    bool isFullScreen;
+
     string buildTextureFilePath(string textureName);
 };
