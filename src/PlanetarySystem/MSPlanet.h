@@ -20,7 +20,7 @@ class MSPlanet : public MSAstronomicalObject
 {
 public:
 
-    MSPlanet(double radiusEq, double radiusPolar, double rotationPeriod, double axialTilt,
+    MSPlanet(double radiusEq, double radiusPolar, double rotationPeriod, double axialTilt, string textureFile,
         double orbitalPeriod, double orbitalEccentricity, double orbitalInclination);
 
 //    void setup();

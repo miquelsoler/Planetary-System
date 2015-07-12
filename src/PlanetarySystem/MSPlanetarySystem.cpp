@@ -36,6 +36,8 @@ void MSPlanetarySystem::update()
 
 void MSPlanetarySystem::draw()
 {
+    ofEnableDepthTest();
+
     camera.begin();
     {
         star.draw();
@@ -44,4 +46,6 @@ void MSPlanetarySystem::draw()
             astronomicalObjects[i].draw();
     }
     camera.end();
+
+    ofDisableDepthTest();
 }

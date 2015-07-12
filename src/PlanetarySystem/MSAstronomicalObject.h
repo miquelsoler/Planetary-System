@@ -20,7 +20,7 @@ public:
 
     MSAstronomicalObject() {};
 
-    MSAstronomicalObject(double radiusEq, double radiusPolar, double rotationPeriod, double axialTilt);
+    MSAstronomicalObject(double radiusEq, double radiusPolar, double rotationPeriod, double axialTilt, string textureFile);
 
     void setParent(MSAstronomicalObject *parent);
 
@@ -41,6 +41,9 @@ protected:
     double                  mAxialTilt;             // Angle (0 for star)
 
     MSAstronomicalObject    *parent;
+
+    // Object draw
+    ofImage                 m3DObjectTexture;
 };
 
 #endif /* defined(__Planets__MSAstronomicalObject__) */

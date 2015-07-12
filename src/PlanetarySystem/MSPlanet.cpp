@@ -8,9 +8,9 @@
 
 #include "MSPlanet.h"
 
-MSPlanet::MSPlanet(double radiusEq, double radiusPolar, double rotationPeriod, double axialTilt,
+MSPlanet::MSPlanet(double radiusEq, double radiusPolar, double rotationPeriod, double axialTilt, string textureFile,
         double orbitalPeriod, double orbitalEccentricity, double orbitalInclination)
-        : MSAstronomicalObject(radiusEq, radiusPolar, rotationPeriod, axialTilt)
+        : MSAstronomicalObject(radiusEq, radiusPolar, rotationPeriod, axialTilt, textureFile)
 {
     mOrbitalPeriod = orbitalPeriod;
     mOrbitalEccentricity = orbitalEccentricity;
