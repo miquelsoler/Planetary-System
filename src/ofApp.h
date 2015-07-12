@@ -28,4 +28,6 @@ public:
 private:
 
     MSPlanetarySystem planetarySystem;
+
+    string buildTextureFilePath(string textureName);
 };

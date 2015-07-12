@@ -5,14 +5,11 @@ void ofApp::setup()
 {
     ofBackground(ofColor::black);
 
-    string texturePrefix = "textures/";
-    string textureSuffix = ".png";
-
     // Add the sun
     double sunRadius = 696342.0;
     double rotationPeriod = 601.2; // Sun rotation period in days is 25.05
     double axialTilt = 0;
-    MSAstronomicalObject sun(sunRadius, sunRadius, rotationPeriod, axialTilt, texturePrefix + "0.sun" + textureSuffix);
+    MSAstronomicalObject sun(sunRadius, sunRadius, rotationPeriod, axialTilt, buildTextureFilePath("0.sun"));
 
     planetarySystem = MSPlanetarySystem(sun);
 }
@@ -70,4 +67,13 @@ void ofApp::gotMessage(ofMessage msg){
 //--------------------------------------------------------------
 void ofApp::dragEvent(ofDragInfo dragInfo){ 
 
+}
+
+//--------------------------------------------------------------
+string ofApp::buildTextureFilePath(string textureName)
+{
+    string texturePrefix = "textures/";
+    string textureSuffix = ".png";
+
+    return texturePrefix + "0.sun" + textureSuffix;
 }
