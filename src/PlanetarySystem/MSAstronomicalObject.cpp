@@ -23,9 +23,11 @@ MSAstronomicalObject::MSAstronomicalObject(double radiusEq, double radiusPolar, 
     ofDisableArbTex();
     m3DObjectTexture.loadImage(textureFile);
     m3DObjectTexture.setAnchorPercent(0.5, 0.5);
-//    m3DObjectTexture.getTextureReference().setTextureWrap( GL_REPEAT, GL_REPEAT );
+    m3DObjectTexture.getTextureReference().setTextureWrap( GL_REPEAT, GL_REPEAT );
     m3DObject.mapTexCoordsFromTexture(m3DObjectTexture.getTextureReference());
     m3DObject.mapTexCoords(0, 1, 1, 0);
+
+    m3DObject.setResolution(24);
 }
 
 void MSAstronomicalObject::setParent(MSAstronomicalObject *_parent)

@@ -12,7 +12,7 @@ void ofApp::setup()
     double sunRadius = 696342.0;
     double rotationPeriod = 601.2; // Sun rotation period in days is 25.05
     double axialTilt = 0;
-    MSAstronomicalObject sun(sunRadius, sunRadius, rotationPeriod, axialTilt, texturePrefix + "0. sun" + textureSuffix);
+    MSAstronomicalObject sun(sunRadius, sunRadius, rotationPeriod, axialTilt, texturePrefix + "0.sun" + textureSuffix);
 
     planetarySystem = MSPlanetarySystem(sun);
 }
