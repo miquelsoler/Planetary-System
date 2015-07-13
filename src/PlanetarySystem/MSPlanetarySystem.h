@@ -29,10 +29,10 @@ public:
 
 private:
 
-    MSAstronomicalObject            star;
-    vector<MSAstronomicalObject>    astronomicalObjects;
+    MSAstronomicalObject            mStar;
+    vector<MSAstronomicalObject>    mAstronomicalObjects;
 
-    ofEasyCam                       camera;
+    ofEasyCam                       mCamera;
 };
 
 #endif /* defined(__Planets__MSPlanetarySystem__) */

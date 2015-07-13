@@ -38,9 +38,9 @@ protected:
 
     double                  mRotationPeriod;        // In hours
 
-    double                  mAxialTilt;             // Angle (0 for star)
+    double                  mAxialTilt;             // Angle (0 for mStar)
 
-    MSAstronomicalObject    *parent;
+    MSAstronomicalObject    *mParent;
 
     // Object draw
     ofImage                 m3DObjectTexture;

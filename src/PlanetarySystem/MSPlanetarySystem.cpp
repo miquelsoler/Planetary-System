@@ -13,39 +13,39 @@ const float FAR_CLIP_FACTOR = 100.0f;
 
 MSPlanetarySystem::MSPlanetarySystem(const MSAstronomicalObject &_star)
 {
-    star = _star;
+    mStar = _star;
 
-    camera.setTarget(star.m3DObject);
-    camera.setDistance(star.getRadius() * DEFAULT_DISTANCE_FACTOR);
-    camera.setNearClip(0.001f);
-    camera.setFarClip(star.getRadius() * FAR_CLIP_FACTOR);
+    mCamera.setTarget(mStar.m3DObject);
+    mCamera.setDistance(float(mStar.getRadius() * DEFAULT_DISTANCE_FACTOR));
+    mCamera.setNearClip(0.001f);
+    mCamera.setFarClip(float(mStar.getRadius() * FAR_CLIP_FACTOR));
 }
 
 void MSPlanetarySystem::addAstronomicalObject(const MSAstronomicalObject &astronomicalObject)
 {
-    astronomicalObjects.push_back(astronomicalObject);
+    mAstronomicalObjects.push_back(astronomicalObject);
 }
 
 void MSPlanetarySystem::update()
 {
-    star.update();
-    unsigned long numObjects = astronomicalObjects.size();
+    mStar.update();
+    unsigned long numObjects = mAstronomicalObjects.size();
     for (int i=0; i<numObjects; i++)
-        astronomicalObjects[i].update();
+        mAstronomicalObjects[i].update();
 }
 
 void MSPlanetarySystem::draw()
 {
     ofEnableDepthTest();
 
-    camera.begin();
+    mCamera.begin();
     {
-        star.draw();
-        unsigned long numObjects = astronomicalObjects.size();
+        mStar.draw();
+        unsigned long numObjects = mAstronomicalObjects.size();
         for (int i=0; i<numObjects; i++)
-            astronomicalObjects[i].draw();
+            mAstronomicalObjects[i].draw();
     }
-    camera.end();
+    mCamera.end();
 
     ofDisableDepthTest();
 }

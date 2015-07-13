@@ -1,14 +1,18 @@
 #include "ofApp.h"
 
+#include "MSPlanetarySystemSettings.h"
+
 //--------------------------------------------------------------
 void ofApp::setup()
 {
     ofBackground(ofColor::black);
     isFullScreen = false;
 
+    MSPlanetarySystemSettings::getInstance().setTimeScale(10000000.0f);
+    
     // Add the sun
     double sunRadius = 696342.0;
-    double rotationPeriod = 601.2; // Sun rotation period in days is 25.05
+    double rotationPeriod = 601.2; // Sun rotation period in days is 25.05, so 601.2 = 25.05*24
     double axialTilt = 0;
     MSAstronomicalObject sun(sunRadius, sunRadius, rotationPeriod, axialTilt, buildTextureFilePath("0.sun"));
 

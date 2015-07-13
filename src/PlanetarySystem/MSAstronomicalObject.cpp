@@ -8,6 +8,8 @@
 
 #include "MSAstronomicalObject.h"
 
+#include "MSPlanetarySystemSettings.h"
+
 MSAstronomicalObject::MSAstronomicalObject(double radiusEq, double radiusPolar, double rotationPeriod, double axialTilt, string textureFile)
 {
     mRadiusEquatorial = radiusEq / SCALE_FACTOR;
@@ -15,10 +17,10 @@ MSAstronomicalObject::MSAstronomicalObject(double radiusEq, double radiusPolar, 
     mRotationPeriod = rotationPeriod;
     mAxialTilt = axialTilt;
 
-    parent = NULL;
+    mParent = NULL;
 
     m3DObject.setPosition(0, 0, 0);
-    m3DObject.setRadius(mRadiusEquatorial);
+    m3DObject.setRadius(float(mRadiusEquatorial));
 
     ofDisableArbTex();
     m3DObjectTexture.loadImage(textureFile);
@@ -32,8 +34,8 @@ MSAstronomicalObject::MSAstronomicalObject(double radiusEq, double radiusPolar, 
 
 void MSAstronomicalObject::setParent(MSAstronomicalObject *_parent)
 {
-    parent = _parent;
-    m3DObject.setParent(parent->m3DObject);
+    mParent = _parent;
+    m3DObject.setParent(mParent->m3DObject);
 }
 
 void MSAstronomicalObject::update()
@@ -43,9 +45,16 @@ void MSAstronomicalObject::update()
 
 void MSAstronomicalObject::draw()
 {
-    m3DObjectTexture.getTextureReference().bind();
-    m3DObject.draw();
-    m3DObjectTexture.getTextureReference().unbind();
+    ofPushMatrix();
+    {
+        ofRotateZ(float(mAxialTilt));
+        double rotationPeriodAngle = (ofGetElapsedTimeMillis() / (mRotationPeriod * 60.0 * 60.0 * 1000.0)) * MSPlanetarySystemSettings::getInstance().getTimeScale();
+        ofRotate(float(rotationPeriodAngle), 0, 1, 0);
+        m3DObjectTexture.getTextureReference().bind();
+        m3DObject.draw();
+        m3DObjectTexture.getTextureReference().unbind();
+    }
+    ofPopMatrix();
 }
 
 double MSAstronomicalObject::getRadius()
